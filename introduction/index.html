@@ -12,6 +12,124 @@
         //script js en page
 
         //variables
+        var prenom = 'Jean'; // portée (scope) globale
+        let nom = 'Durand';
+
+        let nomPrenom = nom + ' ' + prenom; // eviter la concatenation des chaines et variables
+
+        function afficherPrenom(){
+            console.log(prenom);
+            prenom = 'Urbain';
+        }
+
+        console.log(prenom);
+        afficherPrenom();
+        console.log(prenom);
+
+        function afficheNom(){
+            let nom = 'max';
+            console.log(nom);
+        }
+        afficheNom();
+        console.log(nom);
+
+        console.log(nomPrenom);
+        console.log(1 + 2);
+        console.log(nom + 2 + 3); //transtypage => la concaténation contient du texte et un autre type => tout est converti en texte
+
+        /*
+        JS est donc un langage prototype, entre les balises script
+        je suis dans un prototype par defaut
+        */
+        //constante = une vrariable dans le contenu (la valeur) n'evolue pas
+        const CAFE = 'Arabica'; 
+        let i = null;
+
+        for(let i = 0; i < 10; i++){
+            console.log(i);
+        }
+
+        console.log(i);
+
+        //Js est un langage non typé
+        /*
+         * type :
+         * [Primitif]
+         * int       => entier
+         * float     => virgule flottante (deciamale)
+         * bool      => booleen
+         * 
+         * [Référence]
+         * String    => chaine de caracteres (tableau de caracteres)
+         * Array     => tableau de données
+         * Object    => objet
+         * JSON      => JavaScript Object Notation
+        */
+
+        //Operateurs
+
+        /*
+         * Mathematiques :
+         *  +
+         *  -
+         *  /
+         *  *
+         *  %
+         *  ** (2**3  pow ou puissance a utiliser a la place Math.pow(2,3) => 2 puissance 3)
+         * 
+         * Incrementation et decrementation : ++ --
+         * 
+         * logique :
+         * && (ET)
+         * || (OU)
+         * !  (NON)
+         * ^  (OU exclusif Binaire XOR)
+         * 
+         * 
+         * Comparaison :
+         *  < > <= >=
+         * == !=
+         * === !==
+        */
+        let calcPow1 = Math.pow(2,3);
+        console.log(calcPow1);
+        let calcPow2 = 2**3;
+        console.log(calcPow2);
+
+        //Yoda code : on compare la valeur attendue a la valeur recue
+        let varYoda = '12';
+        console.log(12 == varYoda);
+        console.log(12 === varYoda);
+        
+        /**
+         * //herite de java
+         * //java
+         * 
+         * string a = "chaine"
+         * a.equal("chaine"); //true
+         * 
+         * string b = null
+         * b.equal("chaine") //retourne une erreur type nullPointerExecption
+         * 
+         * //yodaCode
+         * "chaine".equal(b); //false
+        */
+        
+        let chaineQuote = 'Lorem ipsum dolor sit amet consectetur adipisicing elit.\n';
+        chaineQuote += 'Fugit at voluptas quo pariatur voluptatum architecto incidunt voluptates,\n';
+        chaineQuote += 'praesentium, distinctio assumenda vel nulla et quia!\n';
+        chaineQuote += 'Provident magnam aut fugiat in. Consequatur.';
+        console.log(chaineQuote);
+
+
+        function renvoieMot(unMot = 'Coucou'){
+            return unMot;
+        }
+        // interpolation de chaines
+        let a = 1;
+        let template = `a = ${a}, 1 + 2 = ${ 1 + 2 }, renvoieMot() = ${renvoieMot()}`;
+        console.log(template);
+
 
     </script>
 </head>
