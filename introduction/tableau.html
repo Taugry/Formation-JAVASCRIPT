@@ -8,7 +8,33 @@
     <link rel="stylesheet" href="../CSS/bootstrap.css">
     <link rel="stylesheet" href="../CSS/style.css">
     <script src="../JS/bootstrap.bundle.js"></script>
-    <script></script>
+    <script>
+        //avant es6
+        //let tableau = new Array();
+
+        let cars = ['Peugot', 'Citroën', 'Ford', 'Renault'];
+        console.log(cars);
+        console.log(cars[1]);
+        console.log(`Le tableau cars : ${cars} contient ${cars.length} élément(s)`);
+
+        // les tableaux sont l'équivalent d'objet itérables
+        console.log('-------------------------boucle for-------------------------');
+        for(let i = 0; i < cars.length; i++){
+            console.log(`La valeur cars[${i}] : ${cars[i]}`);
+        }
+
+        console.log('-------------------boucle for in-------------------');
+        for(let index in cars){
+            console.log(`La valeur cars[${index}] : ${cars[index]}`);
+        }
+
+        console.log('-------------------boucle for of (es6)-------------------');
+        for(let value in cars){
+            console.log(`La valeur actuelle dans cars est : ${value}`);
+        }
+        
+
+    </script>
 </head>
 
 <body>
@@ -41,7 +67,11 @@
     </nav>
 
     <main class="container">
-     
+        <article class="col-lg-12">
+            <header>
+                <h2>Les Tableaux</h2>
+            </header>
+        </article>
     </main>
 
     <footer class="bg-light">
