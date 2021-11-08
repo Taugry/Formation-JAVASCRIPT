@@ -280,10 +280,20 @@
         for (let i = 0; i < 10; i++) {
             tabl[i] = Math.floor(Math.random()*100)+1;;
         }
-        
         console.log(tabl);
-        tabl.sort();
+
+        for (let i = 0; i < tabl.length; i++) {
+            for (let j = i+1; j < tabl.length; j++) {
+                if (tabl[i] > tabl[j]) {
+                    let temp = tabl[i];
+                    tabl[i] = tabl[j];
+                    tabl[j] = temp;
+                }
+            }
+        }
         console.log(tabl);
+
+
 
 
 
