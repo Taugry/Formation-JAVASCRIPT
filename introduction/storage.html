@@ -50,10 +50,8 @@
                 sessionStorage.clear();
                 actualSessionUserName.innerText = 'session clear';
             });
-        });
 //////////////////////////////////////local storage///////////////////////////////////////////////////////////////////////////
         console.log(localStorage);
-        window.addEventListener('DOMContentLoaded', function(){
             let inputlocalUser = document.querySelector('#localUser');
             let actuallocalUserName = document.querySelector('#datalocalUsername');
             if(localStorage.getItem('localUserName')){
@@ -84,8 +82,34 @@
                 localStorage.clear();
                 actuallocalUserName.innerText = 'Pas de localUserName enregistrer';
             });
-        });
+        
+        //////////////////////////////////////cookie///////////////////////////////////////////////////////////////////////////
+        
+        console.log(document.cookie);
 
+        let cookieValue = 'Nico';
+        //creation d'une date d'expiration
+        let dateNow = new Date();
+        console.log(dateNow);
+        //1 * 24 * 60 * 60 * 1000
+        dateNow.setTime(dateNow.getTime() + (1 * 24 * 60 * 60 * 1000));
+        console.log(dateNow);
+        //detruire prematurement un cookie, il faut le regler a une date anterieure a la date actuelle
+        //creation d'une date anterieure
+        let anteDateNow = new Date();
+        console.log(anteDateNow);
+        //1 * 24 * 60 * 60 * 1000
+        anteDateNow.setTime(anteDateNow.getTime() - (1 * 24 * 60 * 60 * 1000));
+        console.log(anteDateNow); 
+        //creer un cookier qui expire a datenow
+        document.cookie = `monCookie=${cookieValue}; expires=${dateNow.toUTCString()}; path=/introduction; SameSite=None; Secure`;
+        //detruire le cookie
+        //document.cookie = `monCookie=; expires=${anteDateNow.toUTCString()}; path=/introduction; SameSite=None; Secure`;
+
+
+
+
+    });
     </script>
 </head>
 
@@ -167,6 +191,27 @@
                 </p>
                 <p>
                     local UserName Actuel : <span id="datalocalUsername"></span>
+                </p>
+            </main>
+        </article>
+        <article class="col-lg-6">
+            <header>
+                <h2>le stockage des données en JS</h2>
+            </header>
+            <main>
+                <h3>Cookie</h3>
+                <p>
+                    <label class="form-label">Cookie Value:</label>
+                    <input type="text" class="form-control" id="cookieValue" value="">
+                </p>
+                <p>
+                    <button id="btnCookie" class="btn btn-primary">Sauvegarder cookie value</button>                   
+                </p>
+                <p>
+                    <button id="btnClearCookieValue" class="btn btn-warning">Clear cookie value</button>
+                </p>
+                <p>
+                    Cookie Value Actuel : <span id="dataCookieValue"></span>
                 </p>
             </main>
         </article>
