@@ -53,14 +53,27 @@
             });
 
             allPara.forEach(para => {
-                   para.addEventListener('click', function(){
-                       s('#showP').innerText = this.innerText;
-                   })
-                });
+                para.addEventListener('click', function(){
+                    s('#showP').innerText = this.innerText;
+                })
+            });
             
 
+            //roll over en js modifications des attribues de l'images
+            let imgOver = s('#imgOver');
+            imgOver.addEventListener('mouseover', function(){
+                imgOver.setAttribute('src', '../images/pip-boy-thumb-up.png');
+                imgOver.setAttribute('alt', 'pouce en l\'air');
+                //imgOver.classList.add('redBorder');
+                imgOver.classList.toggle('redBorder');
 
-
+            });
+            imgOver.addEventListener('mouseout', function(){
+                imgOver.setAttribute('src', '../images/pip-boy-thumb-down.png')
+                imgOver.setAttribute('alt', 'pas de pouce');
+                //imgOver.classList.add('redBorder');
+                imgOver.classList.toggle('redBorder');
+            });
 
 
 
@@ -100,6 +113,7 @@
                     <div id="showP">
 
                     </div>
+                    <img src="../images/pip-boy-thumb-down.png" alt="pip-boy-not-loaded" width="200" id="imgOver">
                 </main>
             </article>
         </section>
