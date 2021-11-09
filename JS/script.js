@@ -20,3 +20,18 @@ function getCookie(name){
     }
     return false;
 }
+
+function loadNav(){
+    fetch('../includes/navigation.html')
+    .then(
+        function(response){
+            console.log(response);
+            return response.text();
+        }
+    )
+    .then(
+        function(nav){
+            document.querySelector('body > nav').innerHTML = nav;
+        }
+    )
+}
