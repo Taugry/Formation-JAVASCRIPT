@@ -9,3 +9,7 @@ h1, .h1{
 .redBorder{
     border: 1px solid #f00;
 }
+
+.paragrapheVert{
+    color: #aacc00;
+}

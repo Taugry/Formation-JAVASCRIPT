@@ -1,0 +1,72 @@
+<!DOCTYPE html>
+<html lang="fr">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Formation Javascript - Ecmascript</title>
+    <link rel="stylesheet" href="../css/bootstrap.css" />
+    <link rel="stylesheet" href="../css/style.css" />
+    <script src="../js/bootstrap.bundle.js"></script>
+    <script src="../js/script.js"></script>
+    <script>
+        loaded(function(){
+            loadNav();
+
+            //paragrapheVert
+            //color: #aacc00;
+            s('#btn').addEventListener('click', function(){
+                let cible = s('#cible');
+                //( cible.hasAttribute('style') )? cible.removeAttribute('style') : cible.style.color = '#aacc00';
+                ( cible.hasAttribute('style') )? cible.style.removeProperty('color') : cible.style.setProperty('color', '#aacc00');
+            });
+
+            s("#btnClasse").addEventListener('click', () => s('#cibleClasse').classList.toggle('paragrapheVert'));
+        });
+    </script>
+</head>
+
+<body>
+    <header class="bg-light">
+        <h1>Formation Javascript / Ecmascript</h1>
+    </header>
+    <nav class="navbar navbar-expand-lg navbar-light bg-light">
+
+    </nav>
+    <main class="container">
+        <section class="row">
+            <article class="col-lg-12">
+                <header>
+                    <h2>Agir sur le CSS</h2>
+                </header>
+                <main>
+                    <button id="btn" class="btn btn-primary">
+                        Ajouter de la couleur
+                    </button>
+                    <p id="cible">
+                        Lorem ipsum dolor sit amet consectetur adipisicing 
+                        elit. Ipsam hic repellat earum a nostrum sed sapiente 
+                        deleniti dignissimos aliquid corporis, voluptas impedit 
+                        voluptatibus necessitatibus quidem alias, nobis 
+                        exercitationem cum iusto?
+                    </p>
+                    <button id="btnClasse" class="btn btn-primary">
+                        Ajouter de la couleur en classe
+                    </button>
+                    <p id="cibleClasse">
+                        Lorem ipsum dolor sit amet consectetur adipisicing 
+                        elit. Ipsam hic repellat earum a nostrum sed sapiente 
+                        deleniti dignissimos aliquid corporis, voluptas impedit 
+                        voluptatibus necessitatibus quidem alias, nobis 
+                        exercitationem cum iusto?
+                    </p>
+                </main>
+            </article>
+        </section>
+    </main>
+    <footer class="bg-light">
+        &copy; Dawan 2021-11
+    </footer>
+</body>
+
+</html> 
