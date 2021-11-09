@@ -1,3 +1,14 @@
+//creation de ma petite bibliotheque JS pour le dom
+//le dom est charge
+function loaded(callable){
+    window.addEventListener('DOMContentLoaded', callable);
+}
+
+function s(selector){
+    return document.querySelector(selector);
+}
+
+
 function setCookie(name, value="", days=-1){
     let dateNow = new Date();
     dateNow.setTime(dateNow.getTime() + (days * 24 * 60 * 60 * 1000));

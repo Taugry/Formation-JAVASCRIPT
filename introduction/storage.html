@@ -10,15 +10,13 @@
     <script src="../JS/bootstrap.bundle.js"></script>
     <script src="../JS/script.js"></script>
     <script>
-        window.addEventListener('DOMContentLoaded', function(){
-            loadNav();
-        });
         //voir la session storage
         console.log(sessionStorage);
 
-        window.addEventListener('DOMContentLoaded', function(){
-            let inputSessionUser = document.querySelector('#sessionUser');
-            let actualSessionUserName = document.querySelector('#dataSessionUsername');
+        loaded(function(){
+            loadNav();
+            let inputSessionUser = s('#sessionUser');
+            let actualSessionUserName = s('#dataSessionUsername');
             //verifier les different storages
             if(sessionStorage.getItem('sessionUserName')){
                 actualSessionUserName.innerText = sessionStorage.getItem('sessionUserName');
@@ -31,57 +29,57 @@
             
             //console.log(inputSessionUser);
 
-            document.querySelector('#btnSession').addEventListener('click', function(){
+            s('#btnSession').addEventListener('click', function(){
                 //console.log('click boutton session');
                 if(inputSessionUser.value !== ''){
                     console.log('enregistrement en session du username');
                     sessionStorage.setItem('SessionUserName', inputSessionUser.value);
-                    document.querySelector('#dataSessionUsername').innerText = inputSessionUser.value;
+                    s('#dataSessionUsername').innerText = inputSessionUser.value;
                     inputSessionUser.value = '';
                 }
             });
             
             //btn clear sessionusername
-            document.querySelector('#btnClearSessionUserName').addEventListener('click', function(){
+            s('#btnClearSessionUserName').addEventListener('click', function(){
                 console.log('enlever username de la session');
                 sessionStorage.removeItem('SessionUserName');
                 actualSessionUserName.innerText = 'Pas de sessionUserName enregistrer';
             });
 
             //btn clear session
-            document.querySelector('#btnClearSession').addEventListener('click', function(){
+            s('#btnClearSession').addEventListener('click', function(){
                 console.log('Nettoyage de la session');
                 sessionStorage.clear();
                 actualSessionUserName.innerText = 'session clear';
             });
 //////////////////////////////////////local storage///////////////////////////////////////////////////////////////////////////
         console.log(localStorage);
-            let inputlocalUser = document.querySelector('#localUser');
-            let actuallocalUserName = document.querySelector('#datalocalUsername');
+            let inputlocalUser = s('#localUser');
+            let actuallocalUserName = s('#datalocalUsername');
             if(localStorage.getItem('localUserName')){
                 actuallocalUserName.innerText = localStorage.getItem('localUserName');
             }else{
                 actuallocalUserName.innerText = 'Pas de localUserName enregistrer';
             }
 
-            document.querySelector('#btnlocal').addEventListener('click', function(){
+            s('#btnlocal').addEventListener('click', function(){
                 if(inputlocalUser.value !== ''){
                     console.log('enregistrement en local du username');
                     localStorage.setItem('localUserName', inputlocalUser.value);
-                    document.querySelector('#datalocalUsername').innerText = inputlocalUser.value;
+                    s('#datalocalUsername').innerText = inputlocalUser.value;
                     inputlocalUser.value = '';
                 }
             });
             
             //btn clear localusername
-            document.querySelector('#btnClearlocalUserName').addEventListener('click', function(){
+            s('#btnClearlocalUserName').addEventListener('click', function(){
                 console.log('enlever username de la local');
                 localStorage.removeItem('localUserName');
                 actuallocalUserName.innerText = 'Pas de localUserName enregistrer';
             });
 
             //btn clear local
-            document.querySelector('#btnClearlocal').addEventListener('click', function(){
+            s('#btnClearlocal').addEventListener('click', function(){
                 console.log('Vider local');
                 localStorage.clear();
                 actuallocalUserName.innerText = 'Pas de localUserName enregistrer';
@@ -111,9 +109,9 @@
         //document.cookie = `monCookie=; expires=${anteDateNow.toUTCString()}; path=/introduction; SameSite=None; Secure`;
         */
         
-        let inputCookieValue = document.querySelector('#cookieValue').value;
-        let dataCookieValue = document.querySelector('#dataCookieValue');
-        document.querySelector('#btnCookie').addEventListener('click', function(){
+        let inputCookieValue = s('#cookieValue').value;
+        let dataCookieValue = s('#dataCookieValue');
+        s('#btnCookie').addEventListener('click', function(){
             if(inputCookieValue.value !== ''){
                 console.log(inputCookieValue)
                 setCookie('monCookie', inputCookieValue, 1);
@@ -123,7 +121,7 @@
         });
 
         //btnClearCookieValue
-        document.querySelector('#btnClearCookieValue').addEventListener('click', function(){
+        s('#btnClearCookieValue').addEventListener('click', function(){
             setCookie('monCookie');
             dataCookieValue.innerText = '';
         });
