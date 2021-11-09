@@ -9,62 +9,7 @@
     <link rel="stylesheet" href="../CSS/style.css">
     <script src="../JS/bootstrap.bundle.js"></script>
     <script>
-        // l'operateur variadique ? => Rest parameter => ...valeurs
-        /*
-        function maFonction(var01, var02, ...valeus){
-            //code de la fonction
-        }
-
-        maFonction('test',42,5,4,6,8,74,6,1);
-        */
-        // ...valeurs est considerer comme un tableau de valeurs dans la fonction
-        //ATTENTION!! cet operateur peut evidament n'etre utilise qu'en dernier parametre d'une fonction
-
-        function addition(...values){
-            let res = 0;
-            for(let value of values){
-                if(!isNaN(value))
-                res += (parseInt(value));
-            }
-            return res;
-        }
-        console.log(`1+2+3+4+5+6+7+8+9 = ${addition(1,2,'3',4,5,6,7,8,9)}`);
-
-        //fonction anonyme
-        let maFonctionAnonyme = function(name = null){
-            /*
-            let res = 'Hello ';
-            if(null === name){
-                res += 'Kitty';
-            }else{
-                res += name;
-            }
-            return res;
-            */
-            return `Hello ${( null === name) ? 'Kitty' : name }`;
-        }
-        console.log(maFonctionAnonyme());
-        console.log(maFonctionAnonyme('Nicolas'));
         
-        //avec l'operateur arrow
-        let maFonctionAnonyme2 = (name = null) => `2Hello ${( null === name) ? 'Kitty' : name }`;
-        console.log(maFonctionAnonyme2());
-        console.log(maFonctionAnonyme2('Nicolas'));
-
-        //fonction auto-execute
-        // (declaration d'une fonction)(ici variable si besoin)
-        (function(){
-            console.table([1,2,3,4,5])
-        });
-
-        ( () => { 
-            console.table([1,2,3,4,5]);
-        });
-
-        ( (tab, bibi) => {
-            console.table(tab);
-            console.log(bibi);
-        }) ([1,2,3,4,5],'test');
 
     </script>
 </head>
@@ -103,7 +48,7 @@
     <main class="container">
         <article class="col-lg-12">
             <header>
-                <h2>Les Fonctions</h2>
+                <h2>La destructuration</h2>
             </header>
         </article>
     </main>
