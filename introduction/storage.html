@@ -9,68 +9,6 @@
     <link rel="stylesheet" href="../CSS/style.css">
     <script src="../JS/bootstrap.bundle.js"></script>
     <script>
-        //destructuration
-        let liste = [1,2,3,4];
-        // mettre chacun des elements du tableau dans une variable distincte a, b et c
-        /*
-        let a = liste[0],b = liste[1],c = liste[2];
-        */
-       let [a, b, c] = liste;
-       console.log(`a:${a}, b:${b}, c:${c}`);
-
-       let [d, , f, g] = liste;
-       console.log(`d:${d}, f:${f}, g:${g}`);
-
-       let [h, i, j, k = 0, l = 5] = liste;
-       console.log(`h:${h}, i:${i}, j:${j}, k:${k}, l:${l}`);
-
-       let [m, n, o, p, q, r] = liste;
-       console.log(`m:${m}, n:${n}, o:${o}, p:${p}, q:${q}, r:${r}`);
-
-       function testDestructuration(...values){
-           let [auto = true, test = 1, tabTemp = [] ] = values;
-           console.log(`auto: ${auto}, test: ${test}, tabTemp: ${tabTemp}`);
-        }
-        testDestructuration(false, 2, 56, 24, 'oui');
-
-        //destructuration d'objet
-        let objet = {
-            lastName: 'Bond',
-            firstName: 'James',
-            job: 'Secret Agent',
-            helloBond: function(value){
-                return `Hello ${value}`;
-            }
-        };
-        //afficher lastName de l'objet
-        console.log(objet.lastName);
-        //afficher lastName sans passer par objet.?
-        let {lastName, firstName, job, helloBond} = objet;
-        console.log(`lastName: ${lastName}`);
-        console.log(`firstName: ${firstName}`);
-        console.log(`job: ${job}`);
-        console.log(`helloBond('Peppa Pig'): ${helloBond('Peppa Pig')}`);
-
-        //je peut creer des alias dans la destructuration d'objet
-        let {
-            lastName: nom, 
-            firstName: prenom, 
-            job: boullot, 
-            pseudo = '007',
-            helloBond: salutation
-        } = objet;
-        console.log(`nom: ${nom}`);
-        console.log(`prenom: ${prenom}`);
-        console.log(`boullot: ${boullot}`);
-        console.log(`pseudo: ${pseudo}`);
-        console.log(`salutation('Monney penny'): ${salutation('Monney penny')}`);
-
-        //echange de valeurs
-        let number1 = 10, number2 = 72;
-        console.log(`avant : number1 = ${number1}, number2 = ${number2}`);
-        //mettre number1 dans number2 et invcersement sans variable tampon ?
-        [number1, number2] = [number2, number1];
-        console.log(`apres : number1 = ${number1}, number2 = ${number2}`);
         
 
     </script>
@@ -111,7 +49,7 @@
     <main class="container">
         <article class="col-lg-12">
             <header>
-                <h2>La destructuration</h2>
+                <h2>Stockage</h2>
             </header>
         </article>
     </main>
