@@ -7,6 +7,9 @@ function loaded(callable){
 function s(selector){
     return document.querySelector(selector);
 }
+function sAll(selector){
+    return document.querySelectorAll(selector);
+}
 
 
 function setCookie(name, value="", days=-1){

@@ -16,7 +16,54 @@
         });
         */
         loaded(function(){
-            loadNav()
+            loadNav();
+            /*
+            s('.titreChapitre').addEventListener('mouseover', function(){
+                console.log('survol du titre');
+            });
+            */
+           let allTitle = sAll('.titreChapitre');
+           /* snipet propre a VSCODE
+           allTitle.forEach(title => {
+               title.addEventListener('mouseover', function(){
+                console.log(`survol du titre : ${title.innerText}`);
+                });
+                title.addEventListener('click', function(){
+                console.log(`click du titre : ${title.innerText}`);
+                });
+            });
+            */
+
+            allTitle.forEach(function(title){
+                title.addEventListener('mouseover', function(){
+                console.log(`survol du titre : ${title.innerText}`);
+                });
+                title.addEventListener('click', function(){
+                console.log(`click du titre : ${title.innerText}`);
+                });
+            });
+
+            
+            //quand on clique sur le boutton pour tester les paragraph on affiche le contenu html dans la console
+            let allPara = sAll('p');
+            s('#checkP').addEventListener('click', function(){
+                allPara.forEach(para => {
+                    console.log(para.innerText);
+                });
+            });
+
+            allPara.forEach(para => {
+                   para.addEventListener('click', function(){
+                       s('#showP').innerText = this.innerText;
+                   })
+                });
+            
+
+
+
+
+
+
         });
 
     </script>
@@ -33,10 +80,26 @@
         <section class="row">
             <article class="col-lg-12">
                 <header>
-                    <h2></h2>
+                    <h2 class="titreChapitre">DOM : Document Object Model</h2>
                 </header>
                 <main>
-                    
+                    <p>le <b>DOM</b> nous permet de reperer, analyser, modifier et supprimer des elements du document html</p>
+                    <p>
+                        Il faut que tous les elements soit charger pour qu'ils soit possible d'agir de ssus a l'aide du JS
+                        On ecoute alors l'evenement DOMContentLoaded du navigateur (window) qui arrive quand toute la page est chargée.
+                    </p>
+                    <h3 class="titreChapitre">Agir sur le DOM</h3>
+                    <p>Pour agir sur le DOM il faut : </p>
+                    <ul>
+                        <li>Connaître l'évènement écouté : le déclancheur</li>
+                        <li>L'action a éxécuter</li>
+                    </ul>
+                    <p>
+                        <button class="btn btn-primary" id="checkP">Tester les paragraphes</button>
+                    </p>
+                    <div id="showP">
+
+                    </div>
                 </main>
             </article>
         </section>
