@@ -9,7 +9,82 @@
     <link rel="stylesheet" href="../CSS/style.css">
     <script src="../JS/bootstrap.bundle.js"></script>
     <script>
-        
+        //voir la session storage
+        console.log(sessionStorage);
+
+        window.addEventListener('DOMContentLoaded', function(){
+            let inputSessionUser = document.querySelector('#sessionUser');
+            let actualSessionUserName = document.querySelector('#dataSessionUsername');
+            //verifier les different storages
+            if(sessionStorage.getItem('sessionUserName')){
+                actualSessionUserName.innerText = sessionStorage.getItem('sessionUserName');
+            }else{
+                actualSessionUserName.innerText = 'Pas de sessionUserName enregistrer';
+            }
+            
+            //session storage
+            //sessionUser
+            
+            //console.log(inputSessionUser);
+
+            document.querySelector('#btnSession').addEventListener('click', function(){
+                //console.log('click boutton session');
+                if(inputSessionUser.value !== ''){
+                    console.log('enregistrement en session du username');
+                    sessionStorage.setItem('SessionUserName', inputSessionUser.value);
+                    document.querySelector('#dataSessionUsername').innerText = inputSessionUser.value;
+                    inputSessionUser.value = '';
+                }
+            });
+            
+            //btn clear sessionusername
+            document.querySelector('#btnClearSessionUserName').addEventListener('click', function(){
+                console.log('enlever username de la session');
+                sessionStorage.removeItem('SessionUserName');
+                actualSessionUserName.innerText = 'Pas de sessionUserName enregistrer';
+            });
+
+            //btn clear session
+            document.querySelector('#btnClearSession').addEventListener('click', function(){
+                console.log('Nettoyage de la session');
+                sessionStorage.clear();
+                actualSessionUserName.innerText = 'session clear';
+            });
+        });
+//////////////////////////////////////local storage///////////////////////////////////////////////////////////////////////////
+        console.log(localStorage);
+        window.addEventListener('DOMContentLoaded', function(){
+            let inputlocalUser = document.querySelector('#localUser');
+            let actuallocalUserName = document.querySelector('#datalocalUsername');
+            if(localStorage.getItem('localUserName')){
+                actuallocalUserName.innerText = localStorage.getItem('localUserName');
+            }else{
+                actuallocalUserName.innerText = 'Pas de localUserName enregistrer';
+            }
+
+            document.querySelector('#btnlocal').addEventListener('click', function(){
+                if(inputlocalUser.value !== ''){
+                    console.log('enregistrement en local du username');
+                    localStorage.setItem('localUserName', inputlocalUser.value);
+                    document.querySelector('#datalocalUsername').innerText = inputlocalUser.value;
+                    inputlocalUser.value = '';
+                }
+            });
+            
+            //btn clear localusername
+            document.querySelector('#btnClearlocalUserName').addEventListener('click', function(){
+                console.log('enlever username de la local');
+                localStorage.removeItem('localUserName');
+                actuallocalUserName.innerText = 'Pas de localUserName enregistrer';
+            });
+
+            //btn clear local
+            document.querySelector('#btnClearlocal').addEventListener('click', function(){
+                console.log('Vider local');
+                localStorage.clear();
+                actuallocalUserName.innerText = 'Pas de localUserName enregistrer';
+            });
+        });
 
     </script>
 </head>
@@ -58,10 +133,40 @@
                     <input type="text" class="form-control" id="sessionUser" value="">
                 </p>
                 <p>
-                    <button id="btnSession" class="col-sm-6 btn btn-primary mb-2">Sauvegarder UserName en session</button>
+                    <button id="btnSession" class="btn btn-primary">Sauvegarder UserName en session</button>                   
                 </p>
                 <p>
-                    <button id="btnClearSessionUserName" class="col-sm-6 btn btn-warning mb-2">Clear SessionUserName</button>
+                    <button id="btnClearSessionUserName" class="btn btn-warning">Clear SessionUserName</button>
+                </p>
+                <p>
+                    <button id="btnClearSession" class="btn btn-danger">Clear SessionStorage</button>
+                </p>
+                <p>
+                    Session UserName Actuel : <span id="dataSessionUsername"></span>
+                </p>
+            </main>
+        </article>
+        <article class="col-lg-6">
+            <header>
+                <h2>le stockage des données en JS</h2>
+            </header>
+            <main>
+                <h3>LocalStorage</h3>
+                <p>
+                    <label class="form-label">UserName:</label>
+                    <input type="text" class="form-control" id="localUser" value="">
+                </p>
+                <p>
+                    <button id="btnlocal" class="btn btn-primary">Sauvegarder UserName en local</button>                   
+                </p>
+                <p>
+                    <button id="btnClearlocalUserName" class="btn btn-warning">Clear localUserName</button>
+                </p>
+                <p>
+                    <button id="btnClearlocal" class="btn btn-danger">Clear localStorage</button>
+                </p>
+                <p>
+                    local UserName Actuel : <span id="datalocalUsername"></span>
                 </p>
             </main>
         </article>
