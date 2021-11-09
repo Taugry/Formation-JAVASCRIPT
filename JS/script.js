@@ -10,6 +10,9 @@ function s(selector){
 function sAll(selector){
     return document.querySelectorAll(selector);
 }
+function cE(element){
+    return document.createElement(element);
+}
 
 
 function setCookie(name, value="", days=-1){
@@ -39,7 +42,7 @@ function loadNav(){
     fetch('../includes/navigation.html')
     .then(
         function(response){
-            console.log(response);
+            //console.log(response);
             return response.text();
         }
     )
