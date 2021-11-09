@@ -8,6 +8,7 @@
     <link rel="stylesheet" href="../CSS/bootstrap.css">
     <link rel="stylesheet" href="../CSS/style.css">
     <script src="../JS/bootstrap.bundle.js"></script>
+    <script src="../JS/script.js"></script>
     <script>
         //voir la session storage
         console.log(sessionStorage);
@@ -84,7 +85,7 @@
             });
         
         //////////////////////////////////////cookie///////////////////////////////////////////////////////////////////////////
-        
+        /*
         console.log(document.cookie);
 
         let cookieValue = 'Nico';
@@ -105,10 +106,36 @@
         document.cookie = `monCookie=${cookieValue}; expires=${dateNow.toUTCString()}; path=/introduction; SameSite=None; Secure`;
         //detruire le cookie
         //document.cookie = `monCookie=; expires=${anteDateNow.toUTCString()}; path=/introduction; SameSite=None; Secure`;
+        */
+        
+        let inputCookieValue = document.querySelector('#cookieValue').value;
+        let dataCookieValue = document.querySelector('#dataCookieValue');
+        document.querySelector('#btnCookie').addEventListener('click', function(){
+            if(inputCookieValue.value !== ''){
+                console.log(inputCookieValue)
+                setCookie('monCookie', inputCookieValue, 1);
+                inputCookieValue = '';
+                dataCookieValue.innerText = getCookie('monCookie');
+            }
+        });
+
+        //btnClearCookieValue
+        document.querySelector('#btnClearCookieValue').addEventListener('click', function(){
+            setCookie('monCookie');
+            dataCookieValue.innerText = '';
+        });
+
+        console.log(document.cookie);  
+        let testCookie = getCookie('monCookie');
+
+        if(!testCookie){
+            dataCookieValue.innerText = '';
+        }else{
+            dataCookieValue.innerText = testCookie;
+        }
 
 
-
-
+        
     });
     </script>
 </head>
