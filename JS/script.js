@@ -102,7 +102,21 @@ function toTableRowObject(data){
                 if(isFirstRound){
                     theadContent += `<th>${key}</th>`;
                 }
-                tbodyContent += `<td>${key} : ${user[key]}</td>`;
+                if('object' !== typeof user[key]){
+                    tbodyContent += `<td>${user[key]}</td>`;
+                }else{
+                    tbodyContent += `<td>`;
+                    for(item in user[key]){
+                        if (user[key].hasOwnProperty(item)) {
+                            if('object' !== typeof user[key][item]){
+                                tbodyContent += `${item} : ${user[key][item]}<br/>`;
+                            }
+                        }
+                    }
+                    tbodyContent += `</td>`;
+                }
+                
+
             }
         }
         isFirstRound = false;
