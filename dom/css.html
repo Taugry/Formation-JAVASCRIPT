@@ -22,6 +22,13 @@
             });
 
             s("#btnClasse").addEventListener('click', () => s('#cibleClasse').classList.toggle('paragrapheVert'));
+
+            let carre = s('#carre');
+            s('#left').addEventListener('click',() => carre.className = 'left');
+            s('#right').addEventListener('click',() => carre.className = 'right');
+            s('#center').addEventListener('click',() => carre.removeAttribute('class'));
+            //s('#right').addEventListener('click',() => carre.className = '');
+
         });
     </script>
 </head>
@@ -60,6 +67,14 @@
                         voluptatibus necessitatibus quidem alias, nobis 
                         exercitationem cum iusto?
                     </p>
+                    <p class="btn-group" role="group">
+                        <button type="button" class="btn btn-primary" id="left">Gauche</button>
+                        <button type="button" class="btn btn-primary" id="center">Centre</button>
+                        <button type="button" class="btn btn-primary" id="right">Droite</button>
+                    </p>
+                    <div id="carre">
+
+                    </div>
                 </main>
             </article>
         </section>
