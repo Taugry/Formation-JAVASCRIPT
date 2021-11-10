@@ -13,10 +13,24 @@
         loaded(function(){
             loadNav();
 
-            
-            
+            //fetch fonctionne comme les promesse ( auto en async )                       
+            sAll('button.read').forEach(btn => {
+                btn.addEventListener('click', function(){
+                    fetch(this.dataset.url)
+                    .then(response => response.json())
+                    .then(data => {
+                        s('#result > tbody').innerHTML = `${toTableRow(data)}`;
+                    })
+                    .catch(console.log);
+                });
+            });
+
+            s('#result > tbody').addEventListener('click', function(event){
+                console.log(event.target.parentNode.dataset.email);
+            });
         });
     </script>
+    
 </head>
 
 <body>
@@ -30,10 +44,30 @@
         <section class="row">
             <article class="col-lg-12">
                 <header>
-                    <h2>Fetch</h2>
+                    <h2>fetch - bdd.json</h2>
                 </header>
                 <main>
-                   
+                    <h3>Fetch</h3>   
+                    <p class="mb-3">
+                        <button class="btn btn-secondary read" data-url="../ressource/bdd.json">
+                            lire le fichier bdd.json
+                        </button>
+                        <button class="btn btn-secondary read" data-url="https://jsonplaceholder.typicode.com/users">
+                            lire users sur jsonplaceholer
+                        </button>
+                    </p>
+                    <table id="result" class="table table-dark table-striped">
+                        <thead>
+                            <tr>
+                                <th>ID</th>
+                                <th>Nom</th>
+                                <th>Email</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+
+                        </tbody>
+                    </table>                
                 </main>
             </article>
         </section>
