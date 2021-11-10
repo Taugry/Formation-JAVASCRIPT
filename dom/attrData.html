@@ -49,17 +49,20 @@
                     let line = element.dataset.line;
 
                     sAll(`[data-column="${column}"]`).forEach( td => {
-                        td.style.backgroundColor = 'red';
+                        td.style.backgroundColor = 'rgba(255,0,0,0.5)';
                     });
-
+                    /*
                     sAll(`[data-line="${line}"]`).forEach( td => {
-                        td.style.backgroundColor = 'red';
+                        td.parentNode.style.backgroundColor = 'rgba(255,0,0,0.5)';
                     });
+                    */
+                    element.parentNode.style.backgroundColor = 'rgba(255,0,0,0.5)';
                 });
                 element.addEventListener('mouseout',function(){ 
                     coordonnees.forEach(td => {
                         td.style.removeProperty('background-color');
                     });
+                    element.parentNode.style.removeProperty('background-color');
                 });
             });
 
