@@ -46,7 +46,9 @@
 
        asynchCall().then(function(message){
            console.log('asynchCall -> ',message);
-       }).catch(error => console.log('asynchCall -> ', error));
+       }).catch(error => console.log('asynchCall -> ', error)).finally(() => {
+           console.log('fin de la fonction asynchrone');
+       });
 
        console.log('information avant la fin du chargement du DOM');
 
