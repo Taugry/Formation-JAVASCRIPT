@@ -13,36 +13,15 @@
         loaded(function(){
             loadNav();
 
-            //ouvrir une connexion xhr
-            //creation d'une fonction getXhr()
             let xhr = getXhr();
-            //ouvrir un des ficher txt
-            
+            xhr.responseType = 'json';            
             sAll('button.read').forEach(btn => {
                 btn.addEventListener('click', function(){
-                    //methode open(verbe http, url, async(true / false), login, password);
-                    /*
-                    xhr.open('GET', btn.dataset.url, flase);
-                    xhr.send();
-                    */
-                    //xhr reçoit une reponse a la requete envoyee avec .send() 
-                    /*
-                    s('#result').innerHTML = xhr.reponseText;
-                    */
                     xhr.onreadystatechange = () => {
-                        //xhr.readyState
-                        /*
-                        0 : unsent           -> .open() n'a pas encore ete appeler
-                        1 : opened           -> .open() appeler
-                        2 : headers_received -> les entêtes de la requête ont été reçus
-                        3 : loading          -> la requête est en cours de traitement
-                        4 : done             -> la requête est terminée
-                        */
-                        //xhr.status si === 200 c'est OK sinon il y a une erreur
                         if(200 !== xhr.status){
                             s('#result').innerHTML = `<b style="color: red">${xhr.status}</b>`;
                         }if(200 === xhr.status && xhr.DONE === xhr.readyState){
-                            s('#result').innerHTML = `${xhr.responseText}`;
+                            s('#result').innerHTML = `${xhr.response}`;
                         }
                     };
                     xhr.onerror = () => {
