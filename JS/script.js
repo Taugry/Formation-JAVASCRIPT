@@ -1,54 +1,74 @@
 //creation de ma petite bibliotheque JS pour le dom
 //le dom est charge
-function loaded(callable){
+function loaded(callable) {
     window.addEventListener('DOMContentLoaded', callable);
 }
 
-function s(selector){
+function s(selector) {
     return document.querySelector(selector);
 }
-function sAll(selector){
+function sAll(selector) {
     return document.querySelectorAll(selector);
 }
-function cE(element){
+function cE(element) {
     return document.createElement(element);
 }
 
 
-function setCookie(name, value="", days=-1){
+function setCookie(name, value = "", days = -1) {
     let dateNow = new Date();
     dateNow.setTime(dateNow.getTime() + (days * 24 * 60 * 60 * 1000));
     document.cookie = `${name}=${value}; expires=${dateNow}; path=/introduction; SameSite=None; Secure`;
 }
 
-function getCookie(name){
+function getCookie(name) {
     //monCookie=Nico; unAutreCookie=23; dernierCookie=fin
     let tabCookie = document.cookie.split('; ');
     /*
     tabCookie[0] = monCookie=Nico; 
     tabCookie[1] = unAutreCookie=23; 
     tabCookie[2] = dernierCookie=fin;
-    */ 
-    for(cookie of tabCookie){
+    */
+    for (cookie of tabCookie) {
         let tabValue = cookie.split('=');
-        if(name === tabValue[0]){
+        if (name === tabValue[0]) {
             return tabValue[1];
         }
     }
     return false;
 }
 
-function loadNav(){
+function loadNav() {
     fetch('../includes/navigation.html')
-    .then(
-        function(response){
-            //console.log(response);
-            return response.text();
+        .then(
+            function (response) {
+                //console.log(response);
+                return response.text();
+            }
+        )
+        .then(
+            function (nav) {
+                document.querySelector('body > nav').innerHTML = nav;
+            }
+        )
+}
+
+function getXhr() {
+    let xhr = null;
+    //est ce que le navigateur supporte ajax ?
+    if (window.XMLHttpRequest || window.ActiveXObject ) {
+        if(window.ActiveXObject){//est ce que le navigateur est un IE ?
+            try {
+                xhr = new ActiveXObject('Msxml2.XMLHTTP');
+            } catch (e) {
+                xhr = new ActiveXObject('Microsoft.XMLHTTP');               
+            }
+        }else{
+            xhr = new XMLHttpRequest;
         }
-    )
-    .then(
-        function(nav){
-            document.querySelector('body > nav').innerHTML = nav;
-        }
-    )
+    }else{
+        console.log('Votre navigateur ne supporte AJAX');
+        xhr = false;
+    }
+    return xhr;
 }
