@@ -72,3 +72,19 @@ function getXhr() {
     }
     return xhr;
 }
+
+function toTableRow(data){
+    //console.log(data);
+    let html = '';
+    for (user of data) {
+        //console.log(user);
+        html += `
+        <tr data-id="${user.id}" data-name="${user.name}" data-email="${user.email}">
+            <td>${user.id}</td>
+            <td>${user.name}</td>
+            <td>${user.email}</td>
+        </tr>
+        `;
+    }
+    return html;
+}

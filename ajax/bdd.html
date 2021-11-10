@@ -19,9 +19,9 @@
                 btn.addEventListener('click', function(){
                     xhr.onreadystatechange = () => {
                         if(200 !== xhr.status){
-                            s('#result').innerHTML = `<b style="color: red">${xhr.status}</b>`;
+                            s('#result > tbody').innerHTML = `<b style="color: red">${xhr.status}</b>`;
                         }if(200 === xhr.status && xhr.DONE === xhr.readyState){
-                            s('#result').innerHTML = `${xhr.response}`;
+                            s('#result > tbody').innerHTML = `${toTableRow(xhr.response)}`;
                         }
                     };
                     xhr.onerror = () => {
@@ -48,7 +48,7 @@
         <section class="row">
             <article class="col-lg-12">
                 <header>
-                    <h2>Introduction à Ajax - JSON</h2>
+                    <h2>Ajax - bdd.json</h2>
                 </header>
                 <main>
                     <h3>xhr : Xml Http Request</h3>   
@@ -60,7 +60,18 @@
                             lire users sur jsonplaceholer
                         </button>
                     </p>
-                    <p id="result"></p>                
+                    <table id="result" class="table table-dark table-striped">
+                        <thead>
+                            <tr>
+                                <th>ID</th>
+                                <th>Nom</th>
+                                <th>Email</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+
+                        </tbody>
+                    </table>                
                 </main>
             </article>
         </section>
