@@ -1,0 +1,133 @@
+<!DOCTYPE html>
+<html lang="fr">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Formation Javascript - Ecmascript</title>
+    <link rel="stylesheet" href="../css/bootstrap.css" />
+    <link rel="stylesheet" href="../css/style.css" />
+    <script src="../js/bootstrap.bundle.js"></script>
+    <script src="../js/script.js"></script>
+    <script>
+        loaded(function(){
+            loadNav();
+
+            let formTestDefault = s('#testPreventDefault button[type="submit"]');
+            formTestDefault.addEventListener('click', function(){
+                if('' === s('input#nom').value || '' === s('input#prenom').value ){
+                    console.log('preventDefault');
+                    console.log(event);
+                    event.preventDefault();
+                }
+            });
+
+            //evenement au clavier
+            //keyup
+            let inputKeyUp = s('#exKeyup');
+            inputKeyUp.addEventListener('keyup', event =>{
+                //console.log(event.key);
+                //keyupValue
+                if('Enter' == event.key){
+                    s('#keyupValue').textContent = inputKeyUp.value;
+                    inputKeyUp.value = null;
+                }
+                if('Escape' == event.key){
+                    inputKeyUp.value = null;
+                }
+            });
+
+            //add_skill
+            let cpt = 0;
+            let index = 1;
+            s('#add_skill').addEventListener('click', function(){
+                if(cpt < 5){
+                    let div = cE('div');
+                    let input = cE('input');
+                    let span = cE('span');
+
+                    div.classList.add('input-group', 'mt-3', 'mb-3');
+
+                    input.setAttribute('type','text');
+                    input.setAttribute('id',`skill_${index}`);
+                    input.setAttribute('name',`skill_${index}`);
+                    input.setAttribute('placeholder','Ajouter la competance');
+                    input.classList.add('form-control');
+
+                    span.classList.add('input-group-text', 'clic-pointer');
+                    span.textContent(' - ');
+                    
+
+                }
+            });
+            
+        });
+    </script>
+</head>
+
+<body>
+    <header class="bg-light">
+        <h1>Formation Javascript / Ecmascript</h1>
+    </header>
+    <nav class="navbar navbar-expand-lg navbar-light bg-light">
+
+    </nav>
+    <main class="container">
+        <section class="row">
+            <article class="col-lg-12">
+                <header>
+                    <h2>Formulaires - JS</h2>
+                </header>
+                <main>
+                    <h3>Prevent Default</h3>
+                    <form id="testPreventDefault" method="get">
+                        <fieldset>
+                            <legend>Civilité</legend>
+                            <p>
+                                <label class="form-label">Nom</label>
+                                <input type="text" name="nom" id="nom" class="form-control">
+                            </p>
+                            <p>
+                                <label class="form-label">Prenom</label>
+                                <input type="text" name="prenom" id="prenom" class="form-control">
+                            </p>
+                            <p>
+                                <button class="btn btn-primary" type="submit">Soumettre le formulaire</button>
+                            </p>
+                        </fieldset>
+                    </form>
+                    <h3>Recuperer les touche du clavier</h3>
+                    <h4>dans un element</h4>
+                    <p>
+                        <label class="form-label">KeyUp</label>
+                        <input type="text" id="exKeyup" value="" class="form-control">
+                    </p>
+                    <p id="keyupValue">
+
+                    </p>
+                    <h4>Formulaire dynamique</h4>
+                    <form id="formDyn" method="GET">
+                        <fieldset>
+                            <legend>Competances</legend>
+                            <p>
+                                <label class="form-label" >Enregistrez vos competances</label>
+                            </p>
+                            <p>
+                                <button class="btn btn-secondary" id="add_skill">+</button>
+                            </p>
+                        </fieldset>
+                        <button type="submit" class="btn btn-primary">Soumettre competances</button>
+                    </form>
+
+
+
+                </main>
+            </article>
+        </section>
+    </main>
+    <footer class="bg-light">
+        &copy; Dawan 2021-11
+    </footer>
+</body>
+
+</html> 
