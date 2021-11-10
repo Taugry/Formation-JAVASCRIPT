@@ -66,6 +66,25 @@
                 });
             });
 
+            //puissance 4
+            //définir la première couleur
+            let colorNow = 'bg-danger';
+            sAll('#p4 th').forEach( function(tableCol){
+                let coord = 0;
+                tableCol.addEventListener('click', function(){
+                    coord = this.dataset.col;
+                    for(let i = 6; i > 0; i--){
+                        let cell = s(`td[data-col="${coord}"][data-row="${i}"]`);
+                        if( !cell.classList.contains('bg-danger') && !cell.classList.contains('bg-primary')){
+                            //ajout de la couleur
+                            cell.classList.add(colorNow);
+                            colorNow = ('bg-danger' === colorNow)? 'bg-primary' : 'bg-danger';
+                            break;
+                        }
+                    }
+                });
+            });
+
         });
     </script>
 </head>
@@ -174,7 +193,78 @@
                         <td data-column="4" data-line="4">4 - 4</td>
                     </tr>
                 </table>
+                <h3>Grille de puissance 4</h3>
+                    <table id="p4" class="table">
+                        <thead>
+                            <tr>
+                                <th data-col="1"> ↓ </th>
+                                <th data-col="2"> ↓ </th>
+                                <th data-col="3"> ↓ </th>
+                                <th data-col="4"> ↓ </th>
+                                <th data-col="5"> ↓ </th>
+                                <th data-col="6"> ↓ </th>
+                                <th data-col="7"> ↓ </th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            <tr>
+                                <td data-col="1" data-row="1">&nbsp;</td>
+                                <td data-col="2" data-row="1">&nbsp;</td>
+                                <td data-col="3" data-row="1">&nbsp;</td>
+                                <td data-col="4" data-row="1">&nbsp;</td>
+                                <td data-col="5" data-row="1">&nbsp;</td>
+                                <td data-col="6" data-row="1">&nbsp;</td>
+                                <td data-col="7" data-row="1">&nbsp;</td>
+                            </tr>
+                            <tr>
+                                <td data-col="1" data-row="2">&nbsp;</td>
+                                <td data-col="2" data-row="2">&nbsp;</td>
+                                <td data-col="3" data-row="2">&nbsp;</td>
+                                <td data-col="4" data-row="2">&nbsp;</td>
+                                <td data-col="5" data-row="2">&nbsp;</td>
+                                <td data-col="6" data-row="2">&nbsp;</td>
+                                <td data-col="7" data-row="2">&nbsp;</td>
+                            </tr>
+                            <tr>
+                                <td data-col="1" data-row="3">&nbsp;</td>
+                                <td data-col="2" data-row="3">&nbsp;</td>
+                                <td data-col="3" data-row="3">&nbsp;</td>
+                                <td data-col="4" data-row="3">&nbsp;</td>
+                                <td data-col="5" data-row="3">&nbsp;</td>
+                                <td data-col="6" data-row="3">&nbsp;</td>
+                                <td data-col="7" data-row="3">&nbsp;</td>
+                            </tr>
+                            <tr>
+                                <td data-col="1" data-row="4">&nbsp;</td>
+                                <td data-col="2" data-row="4">&nbsp;</td>
+                                <td data-col="3" data-row="4">&nbsp;</td>
+                                <td data-col="4" data-row="4">&nbsp;</td>
+                                <td data-col="5" data-row="4">&nbsp;</td>
+                                <td data-col="6" data-row="4">&nbsp;</td>
+                                <td data-col="7" data-row="4">&nbsp;</td>
+                            </tr>
+                            <tr>
+                                <td data-col="1" data-row="5">&nbsp;</td>
+                                <td data-col="2" data-row="5">&nbsp;</td>
+                                <td data-col="3" data-row="5">&nbsp;</td>
+                                <td data-col="4" data-row="5">&nbsp;</td>
+                                <td data-col="5" data-row="5">&nbsp;</td>
+                                <td data-col="6" data-row="5">&nbsp;</td>
+                                <td data-col="7" data-row="5">&nbsp;</td>
+                            </tr>
+                            <tr>
+                                <td data-col="1" data-row="6">&nbsp;</td>
+                                <td data-col="2" data-row="6">&nbsp;</td>
+                                <td data-col="3" data-row="6">&nbsp;</td>
+                                <td data-col="4" data-row="6">&nbsp;</td>
+                                <td data-col="5" data-row="6">&nbsp;</td>
+                                <td data-col="6" data-row="6">&nbsp;</td>
+                                <td data-col="7" data-row="6">&nbsp;</td>
+                            </tr>
+                        </tbody>
+                    </table>
                 </main>
+
             </article>
         </section>
     </main>
