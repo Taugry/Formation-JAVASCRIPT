@@ -1,0 +1,120 @@
+<!DOCTYPE html>
+<html lang="fr">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Formation Javascript - Ecmascript</title>
+    <link rel="stylesheet" href="../css/bootstrap.css" />
+    <link rel="stylesheet" href="../css/style.css" />
+    <script src="../js/bootstrap.bundle.js"></script>
+    <script src="../js/script.js"></script>
+    <script>
+        loaded(function(){
+            loadNav();
+
+            sAll('p[data-module]').forEach(element => {
+                switch (element.dataset.module) {
+                    case 'color':
+                            //recupere la valeur du dataset color
+                            let color = element.dataset.color || '#f00';
+                            element.addEventListener('mouseover',function(){
+                                this.style.color = color;
+                            });
+                            element.addEventListener('mouseout',function(){
+                                this.style.removeProperty('color');
+                            });
+                        break;
+                    case 'font':
+                    case 'magie':
+                            //code pour font ou magie
+                            let weight = element.dataset.weight || 'lighter';
+                            element.addEventListener('mouseover',function(){
+                                this.style.fontWeight = weight;
+                            });
+                            element.addEventListener('mouseout',function(){
+                                this.style.removeProperty('font-weight');
+                            });
+                        break;
+                    case 'after':
+                    default:
+                        break;
+                }
+            });
+
+        });
+    </script>
+</head>
+
+<body>
+    <header class="bg-light">
+        <h1>Formation Javascript / Ecmascript</h1>
+    </header>
+    <nav class="navbar navbar-expand-lg navbar-light bg-light">
+
+    </nav>
+    <main class="container">
+        <section class="row">
+            <article class="col-lg-12">
+                <header>
+                    <h2>Attribus data - dataset</h2>
+                </header>
+                <main>
+                   <p>
+                       les Attribus data- sont des attributs HTML dynamiques.<br>
+                       Ce qui est dynamiques : leurs noms et valeurs qu'ils possedent.<br>
+                       Pour les utiliser, on cree dans la balise un attribut data-*="..."
+                       où * est le nom du dataset qu'on recupere cote JS et ... la valeur de ce dataset.<br>
+                       Par Exemple : <br>
+                       <code>
+                        &lt;img data-over="../images/test.png" src="../images/test-img.png" /&gt;
+                   </code>
+                   </p>
+                   <hr />
+                   <p data-module="color">
+                       Lorem ipsum dolor sit amet consectetur adipisicing elit. 
+                       Dolorum, nostrum impedit fugiat eius velit accusantium reiciendis? 
+                       Aperiam assumenda, dolore adipisci temporibus rerum architecto libero debitis vitae. 
+                       Dolore dolorem provident quisquam?
+                   </p>
+                   <p data-module="color" data-color="#09f">
+                       Lorem ipsum dolor sit amet consectetur adipisicing elit. 
+                       Dolorum, nostrum impedit fugiat eius velit accusantium reiciendis? 
+                       Aperiam assumenda, dolore adipisci temporibus rerum architecto libero debitis vitae. 
+                       Dolore dolorem provident quisquam?
+                   </p>
+                   <p data-module="color" data-color="orange">
+                       Lorem ipsum dolor sit amet consectetur adipisicing elit. 
+                       Dolorum, nostrum impedit fugiat eius velit accusantium reiciendis? 
+                       Aperiam assumenda, dolore adipisci temporibus rerum architecto libero debitis vitae. 
+                       Dolore dolorem provident quisquam?
+                   </p>
+                   <p data-module="font" data-weight="bold">
+                       Lorem ipsum dolor sit amet consectetur adipisicing elit. 
+                       Dolorum, nostrum impedit fugiat eius velit accusantium reiciendis? 
+                       Aperiam assumenda, dolore adipisci temporibus rerum architecto libero debitis vitae. 
+                       Dolore dolorem provident quisquam?
+                   </p>
+                   <p data-module="magie">
+                       Lorem ipsum dolor sit amet consectetur adipisicing elit. 
+                       Dolorum, nostrum impedit fugiat eius velit accusantium reiciendis? 
+                       Aperiam assumenda, dolore adipisci temporibus rerum architecto libero debitis vitae. 
+                       Dolore dolorem provident quisquam?
+                   </p>
+                   <p data-module="after">
+                       Lorem ipsum dolor sit amet consectetur adipisicing elit. 
+                       Dolorum, nostrum impedit fugiat eius velit accusantium reiciendis? 
+                       Aperiam assumenda, dolore adipisci temporibus rerum architecto libero debitis vitae. 
+                       Dolore dolorem provident quisquam?
+                   </p>
+
+                </main>
+            </article>
+        </section>
+    </main>
+    <footer class="bg-light">
+        &copy; Dawan 2021-11
+    </footer>
+</body>
+
+</html> 
