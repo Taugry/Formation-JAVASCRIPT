@@ -41,6 +41,27 @@
                         break;
                 }
             });
+            
+            let coordonnees = sAll('[data-column][data-line]');
+            coordonnees.forEach( element => {
+                element.addEventListener('mouseover',function(){
+                    let column = element.dataset.column;
+                    let line = element.dataset.line;
+
+                    sAll(`[data-column="${column}"]`).forEach( td => {
+                        td.style.backgroundColor = 'red';
+                    });
+
+                    sAll(`[data-line="${line}"]`).forEach( td => {
+                        td.style.backgroundColor = 'red';
+                    });
+                });
+                element.addEventListener('mouseout',function(){ 
+                    coordonnees.forEach(td => {
+                        td.style.removeProperty('background-color');
+                    });
+                });
+            });
 
         });
     </script>
@@ -107,7 +128,49 @@
                        Aperiam assumenda, dolore adipisci temporibus rerum architecto libero debitis vitae. 
                        Dolore dolorem provident quisquam?
                    </p>
-
+                <h3>Mini exercice : ligne et colonnes d'un tableau</h3>
+                <p>
+                    quand la souris survole une case du tableau ci dessous, 
+                    la ligne et la colonne changent de couleur de fond.
+                    Utiliser les dataset.
+                </p>
+                <table>
+                    <tr>
+                        <td data-column="0" data-line="0">0 - 0 | </td>
+                        <td data-column="1" data-line="0">1 - 0 | </td>
+                        <td data-column="2" data-line="0">2 - 0 | </td>
+                        <td data-column="3" data-line="0">3 - 0 | </td>
+                        <td data-column="4" data-line="0">4 - 0</td>
+                    </tr>
+                    <tr>
+                        <td data-column="0" data-line="1">0 - 1 | </td>
+                        <td data-column="1" data-line="1">1 - 1 | </td>
+                        <td data-column="2" data-line="1">2 - 1 | </td>
+                        <td data-column="3" data-line="1">3 - 1 | </td>
+                        <td data-column="4" data-line="1">4 - 1</td>
+                    </tr>
+                    <tr>
+                        <td data-column="0" data-line="2">0 - 2 | </td>
+                        <td data-column="1" data-line="2">1 - 2 | </td>
+                        <td data-column="2" data-line="2">2 - 2 | </td>
+                        <td data-column="3" data-line="2">3 - 2 | </td>
+                        <td data-column="4" data-line="2">4 - 2</td>
+                    </tr>
+                    <tr>
+                        <td data-column="0" data-line="3">0 - 3 | </td>
+                        <td data-column="1" data-line="3">1 - 3 | </td>
+                        <td data-column="2" data-line="3">2 - 3 | </td>
+                        <td data-column="3" data-line="3">3 - 3 | </td>
+                        <td data-column="4" data-line="3">4 - 3<td>
+                    </tr>
+                    <tr>
+                        <td data-column="0" data-line="4">0 - 4 | </td>
+                        <td data-column="1" data-line="4">1 - 4 | </td>
+                        <td data-column="2" data-line="4">2 - 4 | </td>
+                        <td data-column="3" data-line="4">3 - 4 | </td>
+                        <td data-column="4" data-line="4">4 - 4</td>
+                    </tr>
+                </table>
                 </main>
             </article>
         </section>
