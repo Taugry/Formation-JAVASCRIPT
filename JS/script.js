@@ -89,18 +89,26 @@ function toTableRow(data){
     return html;
 }
 function toTableRowObject(data){
-    //console.log(data);
-    let objetHtml = '';
+    let tbodyContent = '';
+    let theadContent = '';
+    let isFirstRound = true;
+
+    theadContent += '<tr>';
+
     for (let user of data) {
-        objetHtml += `<tr data-id="${user.id}" data-name="${user.name}" data-email="${user.email}">`;
+        tbodyContent += `<tr data-id="${user.id}" data-name="${user.name}" data-email="${user.email}">`;
         for (let key in user) {
             if (user.hasOwnProperty(key)) {
-                objetHtml += `<td>${key} : ${user[key]}</td>`;
+                if(isFirstRound){
+                    theadContent += `<th>${key}</th>`;
+                }
+                tbodyContent += `<td>${key} : ${user[key]}</td>`;
             }
         }
-        objetHtml += '</tr>';
+        isFirstRound = false;
+        tbodyContent += '</tr>';
         
     }
-    console.log(objetHtml);
-    return objetHtml;
+    theadContent += '</tr>';
+    return [theadContent, tbodyContent];
 }

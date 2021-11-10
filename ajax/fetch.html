@@ -19,11 +19,8 @@
                     fetch(this.dataset.url)
                     .then(response => response.json())
                     .then(data => {
-                        if('local' === this.dataset.type){
-                            s('#result > tbody').innerHTML = `${toTableRow(data)}`;
-                        }else{
-                            s('#result > tbody').innerHTML = `${toTableRowObject(data)}`;
-                        }
+                        s('#result > thead').innerHTML = `${toTableRowObject(data)[0]}`;
+                        s('#result > tbody').innerHTML = `${toTableRowObject(data)[1]}`;
                         
                     })
                     .catch(console.log);
