@@ -19,7 +19,12 @@
                     fetch(this.dataset.url)
                     .then(response => response.json())
                     .then(data => {
-                        s('#result > tbody').innerHTML = `${toTableRow(data)}`;
+                        if('local' === this.dataset.type){
+                            s('#result > tbody').innerHTML = `${toTableRow(data)}`;
+                        }else{
+                            s('#result > tbody').innerHTML = `${toTableRowObject(data)}`;
+                        }
+                        
                     })
                     .catch(console.log);
                 });
@@ -49,10 +54,10 @@
                 <main>
                     <h3>Fetch</h3>   
                     <p class="mb-3">
-                        <button class="btn btn-secondary read" data-url="../ressource/bdd.json">
+                        <button class="btn btn-secondary read" data-url="../ressource/bdd.json" data-type="local">
                             lire le fichier bdd.json
                         </button>
-                        <button class="btn btn-secondary read" data-url="https://jsonplaceholder.typicode.com/users">
+                        <button class="btn btn-secondary read" data-url="https://jsonplaceholder.typicode.com/users" data-type="online">
                             lire users sur jsonplaceholer
                         </button>
                     </p>

@@ -88,3 +88,19 @@ function toTableRow(data){
     }
     return html;
 }
+function toTableRowObject(data){
+    //console.log(data);
+    let objetHtml = '';
+    for (let user of data) {
+        objetHtml += `<tr data-id="${user.id}" data-name="${user.name}" data-email="${user.email}">`;
+        for (let key in user) {
+            if (user.hasOwnProperty(key)) {
+                objetHtml += `<td>${key} : ${user[key]}</td>`;
+            }
+        }
+        objetHtml += '</tr>';
+        
+    }
+    console.log(objetHtml);
+    return objetHtml;
+}
